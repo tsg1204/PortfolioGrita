@@ -8,7 +8,7 @@ error_reporting(0);
 ob_start();
 
 // recipient
-$to = 'tsg1204@gmail.com';
+$to = 'tatiana@cgrita.info';
 // message subject
 $subject = 'note from my portfolio site';
 
