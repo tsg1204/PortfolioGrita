@@ -1,7 +1,6 @@
 <?php
 if(isset($_POST['email'])) {
     
-    // CHANGE THE TWO LINES BELOW
     $email_to = "";
     
     $email_subject = "website html form submissions";
@@ -76,10 +75,6 @@ $headers = 'From: '.$email."\r\n".
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $text, $headers);  
 ?>
-
-<!-- place your own success html below -->
-
-Thank you for contacting us. We will be in touch with you very soon.
 
 <?php
 }
