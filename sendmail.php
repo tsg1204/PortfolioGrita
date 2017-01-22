@@ -1,28 +1,53 @@
 <?php
+if(isset($_POST['email'])) {
+    
+    // CHANGE THE TWO LINES BELOW
+    $email_to = "tsg1204@gmail.com";
+    
+    $email_subject = "website html form submissions";
+    
+    
+    function died($error) {
+        // your error code can go here
+        echo "We're sorry, but there's errors found with the form you submitted.<br /><br />";
+        echo $error."<br /><br />";
+        echo "Please go back and fix these errors.<br /><br />";
+        die();
+    }
+    
+    // validation expected data exists
+    if(!isset($_POST['name']) ||
+        !isset($_POST['email']) ||
+        !isset($_POST['message']) ||
+        !isset($_POST['form'])) {
+        died('We are sorry, but there appears to be a problem with the form you submitted.');       
+    }
+    
+    $name = $_POST['name']; // required
+    $email = $_POST['email']; // required
+    $message = $_POST['message']; // not required
+    $form = $_POST['form']; // not required
+    
+    $error_message = "";
+    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+  if(!preg_match($email_exp,$email)) {
+    $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
+  }
+    $string_exp = "/^[A-Za-z .'-]+$/";
 
-// Set JSON header
-header('Content-Type: application/json');
-// Disable Error Reporting
-error_reporting(0);
-// Start buffering
-ob_start();
-
-// recipient
-$to = 'tsg1204@gmail.com';
-// message subject
-$subject = 'note from my portfolio site';
-
-// Getting form values from _REQUEST
-$name    = !empty($_REQUEST['name'])    ? $_REQUEST['name']    : '-';
-$email   = !empty($_REQUEST['email'])   ? $_REQUEST['email']   : '-';
-$message = !empty($_REQUEST['message']) ? $_REQUEST['message'] : '-';
-$form    = !empty($_REQUEST['form'])    ? $_REQUEST['form']    : '-';
-
-// Forming Message
+  if(strlen($error_message) > 0) {
+    died($error_message);
+  }
+    
+    function clean_string($string) {
+      $bad = array("content-type","bcc:","to:","cc:","href");
+      return str_replace($bad,"",$string);
+    }
+    
 $text = "
 
 <body>
-    <h1>Message From Site example.com</h1>
+    <h1>Message From Tatiana's portfolio Site</h1>
     <table>
         <tr>
             <td>Name: </td>
@@ -43,14 +68,20 @@ $text = "
     </table>
 </body>
 ";
+    
+    
+// create email headers
+$headers = 'From: '.$email."\r\n".
+'Reply-To: '.$email."\r\n" .
+'X-Mailer: PHP/' . phpversion();
+@mail($email_to, $email_subject, $text, $headers);  
+?>
 
-$result = mail($to, $subject, $text);
+<!-- place your own success html below -->
 
-// End Buffering
-ob_end_clean();
+Thank you for contacting us. We will be in touch with you very soon.
 
-// Return
-echo json_encode(array(
-    'message_send' => $result ? 'ok' : 'error',
-    'hash'         => substr(md5(time()), 3, 7)
-));
+<?php
+}
+die();
+?>
