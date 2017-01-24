@@ -805,6 +805,7 @@ textarea {
 
 .portfolio-item {
     position: relative;
+    vertical-align: center;
     width: 375px;
     height: 212px;
     overflow: hidden;
