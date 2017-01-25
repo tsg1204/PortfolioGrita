@@ -209,6 +209,7 @@ button:focus {
 .header {
     letter-spacing: 2px;
     border-bottom: solid 1px #ddd;
+    padding-top: 10px;
 }
 
 .header-right {
@@ -343,6 +344,9 @@ blockquote {
     font-size: 13px;
     font-weight: inherit;
     border-left: solid 2px #ccc;
+}
+li {
+    list-style-type: none;
 }
 
 /*
@@ -563,7 +567,7 @@ textarea {
     max-height: 60%;
 
     letter-spacing: 10px;
-    text-align: right;
+    text-align: center;
     text-transform: uppercase;
 
 }
@@ -590,6 +594,9 @@ textarea {
 #navbar a {
     color: #555;
     padding: 15px 9px;
+}
+#navbar {
+    padding-left: 150px;
 }
 
 #navbar a:hover,
@@ -751,9 +758,32 @@ textarea {
     margin-right: 25px;
 }
 /*--------------------------------------------------------------------------------------------------------------------
- * SECTION: Features
+ * SECTION: Technologies
  *--------------------------------------------------------------------------------------------------------------------*/
+/* skills secion */
+.skills-icon{
+    width: 45px;
+    height: 45px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    padding: 0 8px 6px 0;
+}
 
+.skill-icon-row{    
+    color: #7A7C7B;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+}
+
+.skill-icon-row:hover{
+    color: #1E392A;
+}
+
+.skill-icon-row:hover:first-child img{
+    filter: grayscale(0%);
+    opacity: 1.0;
+}
 
 /*--------------------------------------------------------------------------------------------------------------------
  * SECTION: Portfolio
@@ -805,7 +835,6 @@ textarea {
 
 .portfolio-item {
     position: relative;
-    vertical-align: center;
     width: 375px;
     height: 212px;
     overflow: hidden;
@@ -1110,10 +1139,6 @@ label.error {
     .text-big {
         display: none;
     }
-    
-    .about-video {
-        text-align: center;
-    }
 
     .portfolio-filters {
         text-align: center;
@@ -1124,10 +1149,6 @@ label.error {
         display: inline-block;
         margin-left: 5px;
         margin-right: 5px;
-    }
-
-    .price-block {
-        text-align: center;
     }
 
     .contact-information {
@@ -1145,25 +1166,6 @@ label.error {
 
     .footer-terms {
         margin-top: 20px;
-    }
-
-    .blog-post-title,
-    .blog-post-author {
-        text-align: center;
-    }
-
-    .blog-post-additional {
-        padding: 0;
-        background: transparent;
-    }
-
-    .blog-post-category {
-        text-align: right;
-    }
-
-    .blog-post-ream-more {
-        margin-top: 20px;
-        text-align: center;
     }
 }
 
@@ -1188,11 +1190,4 @@ label.error {
         overflow-y: scroll;
     }
 
-    .blog-post-share {
-        text-align: center;
-    }
-
-    .blog-post-category {
-        text-align: center !important;
-    }
 }
