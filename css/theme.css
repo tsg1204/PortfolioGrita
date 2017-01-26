@@ -349,6 +349,9 @@ li {
     list-style-type: none;
 }
 
+.text-about {
+    font-weight: 800;
+}
 /*
  * Icons
  *-------*/
@@ -788,6 +791,9 @@ textarea {
 /*--------------------------------------------------------------------------------------------------------------------
  * SECTION: Portfolio
  *--------------------------------------------------------------------------------------------------------------------*/
+.valign-wrapper {
+    display: block;
+}
 
 .portfolio-filters {
     list-style: none;
@@ -856,7 +862,7 @@ textarea {
     opacity: .0;
 
     color: #333;
-    background: rgba(255, 255, 255, .8);
+    background: rgba(255, 255, 255, .9);
 
     -webkit-transition: .3s ease-in-out;
        -moz-transition: .3s ease-in-out;
@@ -867,6 +873,13 @@ textarea {
 
 .portfolio-item:hover .portfolio-overlay {
     opacity: 1.0;
+}
+
+.portfolio-text-about {
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    font-style: italic;
 }
 
 .portfolio-text {
@@ -1190,4 +1203,12 @@ label.error {
         overflow-y: scroll;
     }
 
+    .auth-image {
+        clear: both;
+    }
+    .portfolio-text-about {
+        font-size: 10px;
+        bottom: 70px;
+    }
+   
 }
